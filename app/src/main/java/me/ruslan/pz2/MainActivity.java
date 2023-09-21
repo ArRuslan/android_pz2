@@ -1,19 +1,18 @@
 package me.ruslan.pz2;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.SeekBar;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
-    private ActionBar actionBar;
     private SeekBar seekbarR;
     private SeekBar seekbarG;
     private SeekBar seekbarB;
+    private View panel;
     private int red;
     private int green;
     private int blue;
@@ -24,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        actionBar = getSupportActionBar();
         seekbarR = findViewById(R.id.seekbar_r);
         seekbarG = findViewById(R.id.seekbar_g);
         seekbarB = findViewById(R.id.seekbar_b);
+        panel = findViewById(R.id.color_panel);
 
         setListeners();
         setColor();
@@ -78,6 +77,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setColor() {
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.rgb(red, green, blue)));
+        panel.setBackgroundColor(Color.rgb(red, green, blue));
     }
 }
